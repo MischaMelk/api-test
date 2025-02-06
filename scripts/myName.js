@@ -4,9 +4,34 @@
 // iedereen: https://fdnd.directus.app/items/person/?fields=id,name,github_handle,avatar&filter={%22squads%22:{%22squad_id%22:{%22name%22:%22Minor%20Web%20Dev%22}}}&sort=name
 
 const baseURL = 'https://fdnd.directus.app/';
-const endpointMe = 'items/person/67';
+const endpointMe = 'items/person/216';
+
+// de url gemaakt door de basis en endpoint aan elkaar toe te voegen
+const myUrl = baseURL + endpointMe;
+//console.log(myUrl);
+
+//de data binnen gehaald van de API.
+getData(myUrl).then(data216 => {
+//console.log(data216.data.name);
+
+//console.log(data216.data.birthdate);
+let myBirthdate = data216.data.birthdate;
+let deP = document.querySelector("p");
+
+deP.textContent = "Geboortedag: " + myBirthdate;
 
 
+// H1 uit de html aanspreken om daar later wat mee te doen in de JS
+let deH1 = document.querySelector("H1");
+
+//myName is de variabele die je aanspreekt uit de data die je verzameld heb, hiermeer ga je stapsgewijs naar je naam.
+let myName = data216.data.name;
+
+// H1 aanspreken uit html - text aanpassen naar de variable myName. 
+deH1.textContent = myName;
+
+//console.log(myName);
+});
 
 
 
