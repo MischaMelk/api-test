@@ -14,10 +14,20 @@ getData(mySquadUrl).then( dataVanIedereen => {
     let everybodySection = document.querySelector("section:nth-of-type(2)");
 
 
+    
+
     // for each zorgt ervoor dat het bij elke persoon een eigen vakje heeft en wordt aangepast.
     persons.forEach( aPerson => {
         // console.log(aPerson.name)
 
+
+    if (aPerson.custom) {
+        aPerson.custom = JSON.parse(aPerson.custom)
+        for (key in aPerson.custom) {
+            console.log(key + ': ' + aPerson.custom[key])
+        }
+    }
+    
     // Haatl de info uit de JSON
     let personName = aPerson.name;
     let personAvatar = aPerson.avatar;
